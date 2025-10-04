@@ -1,3 +1,4 @@
+//! Includes most of the functionality of the crate, for development and testing purposes.
 use bevy::prelude::*;
 use bevy_egui::EguiPlugin;
 use bevy_inspector_egui::quick::{AssetInspectorPlugin, ResourceInspectorPlugin};

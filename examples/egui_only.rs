@@ -1,8 +1,10 @@
+//! Demonstrates using bevy_lookup_curve with just egui, no bevy app.
+//!
+//! This example has no dependencies on bevy except `bevy_math`.
 use eframe::egui;
 
 use bevy_lookup_curve::prelude::*;
 
-/// This example has no dependencies on bevy except bevy_math
 fn main() -> eframe::Result {
     let options = eframe::NativeOptions {
         viewport: egui::ViewportBuilder::default().with_inner_size([800.0, 400.0]),
