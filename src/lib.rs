@@ -320,6 +320,27 @@ impl LookupCurve {
         Self { knots }
     }
 
+    #[inline]
+    pub fn y_interval(&self) -> Option<Interval> {
+        if self.knots.is_empty() {
+            return None;
+        }
+
+        let mut min_y = self.knots[0].position.y;
+        let mut max_y = self.knots[0].position.y;
+
+        for knot in &self.knots {
+            if knot.position.y < min_y {
+                min_y = knot.position.y;
+            }
+            if knot.position.y > max_y {
+                max_y = knot.position.y;
+            }
+        }
+
+        Interval::new(min_y, max_y).ok()
+    }
+
     #[cfg(feature = "ron")]
     /// Loads a [`LookupCurve`] from a RON file.
     pub fn load_from_file(path: &str) -> Result<Self, LookupCurveLoadError> {
